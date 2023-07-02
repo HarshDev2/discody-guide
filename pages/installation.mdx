@@ -1,0 +1,22 @@
+# Installing Discody.js
+
+You can run the following command to install discody.js
+```bash
+npm i discody
+```
+and then create a new main.js file and initiate an new discord bot there.
+```js filename="main.js" copy
+import { Bot, Intents } from "discody";
+
+let bot = new Bot("Your Token Here", [Intents.ALL]);
+
+function sayHello({ interaction, bot }){
+  interaction.reply("hello");
+}
+
+bot.setPrefix("?");
+bot.addMessageCommand("hello", sayHello);
+bot.run();
+```
+
+You can follow the guide to know more about the discody.

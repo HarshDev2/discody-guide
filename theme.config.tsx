@@ -2,17 +2,23 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <span>Discody.js Guide</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/harshdev2/discody-guide',
   },
+
   chat: {
-    link: 'https://discord.com',
+    link: 'https://discord.gg/qeM6uw55nK',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/harshdev2/discody-guide',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Discody.js Guide',
   },
+  useNextSeoProps(){
+    return {
+      titleTemplate: '%s – Discody.js Guide'
+    }
+  }
 }
 
 export default config

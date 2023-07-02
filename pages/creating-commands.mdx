@@ -1,0 +1,66 @@
+# Creating Bot Commands
+import { Callout } from 'nextra/components'
+
+In this guide, we will be creating an simple message based and slash based command.
+
+## Creating Slash Commands
+It is quite easy to create an slash command with discody.js, here's an example slash command.
+
+```js filename="commands/hello.js" copy
+async function execute({ interaction }) {
+  await interaction.deferReply();
+  await interaction.reply("Hi, I am an bot created with discody.js");
+}
+
+export let hello = new SlashCommandBuilder()
+  .setName("hello")
+  .setDescription("Tells hello back to you!")
+  .setExecute(execute);
+```
+
+and here's the main.js file that will add the slash command in the bot.
+
+```js filename="main.js" copy
+import { Bot, Intents } from "discody";
+import { hello } from "./commands/hello.js";
+
+let bot = new Bot("Your Token Here", [Intents.ALL]);
+
+bot.addSlashCommand(hello);
+bot.run();
+```
+
+In the above example, we had to first make an function that will be run whenever the command is run by the discord user.
+
+after that, the we have to build an slash command by SlashCommandBuilder, and set the function with .setExecute() function of builder. 
+
+## Creating Message Commands
+
+Unlike creating slash commands, creating the message commands in a lot more easier, here's an example message command.
+
+### Info
+<Callout type="info">
+Default Message Based Commands Prefix is "!".
+</Callout>
+
+```js filename="commands/hello-message.js" 
+export function hello_message({ interaction }){
+    interaction.reply("hello");
+}
+```
+```js filename="main.js" copy
+import { Bot, Intents } from "discody";
+import { hello_message } from "./commands/hello-message.js";
+
+let bot = new Bot("Your Token Here", [Intents.ALL]);
+
+bot.setPrefix("?");
+bot.addMessageCommand("hello", sayHello);
+bot.run();
+```
+
+### Warning
+
+<Callout type="warning" emoji="⚠️"> 
+You have to provide message command name with function while adding message based commands to the bot.
+</Callout>
