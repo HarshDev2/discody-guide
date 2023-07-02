@@ -10,7 +10,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.gg/qeM6uw55nK',
   },
-  docsRepositoryBase: 'https://github.com/harshdev2/discody-guide',
+  docsRepositoryBase: 'https://github.com/harshdev2/discody-guide/blob/main',
   footer: {
     text: 'Discody.js Guide',
   },
